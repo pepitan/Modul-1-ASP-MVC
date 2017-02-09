@@ -1,4 +1,5 @@
-﻿using System;
+﻿using asp_mvc_2.Scripts.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,16 @@ namespace asp_mvc_2.Controllers
 
         [Authorize]
         public ActionResult Welcome()
+        {
+            return View();
+        }
+        [AuthorizeRoles("Admin")]
+        public ActionResult AdminOnly()
+        {
+            return View();
+        }
+
+        public ActionResult UnAuthorized()
         {
             return View();
         }
